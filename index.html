@@ -2,55 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML-Only Remote Tool</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f4f4;
-            text-align: center;
-            padding: 50px;
-        }
-        button {
-            padding: 10px 20px;
-            margin: 10px;
-            font-size: 16px;
-        }
-        #output {
-            margin-top: 20px;
-            background: #fff;
-            padding: 20px;
-            border: 1px solid #ddd;
-            min-height: 100px;
-        }
-    </style>
+    <title>Web Remote Support Tool</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>HTML-Only Remote Tool</h1>
 
-    <button onclick="runCommand('time')">Get Time</button>
-    <button onclick="runCommand('greet')">Greet</button>
-    <button onclick="runCommand('color')">Change Background Color</button>
+    <h1>Remote Support Tool</h1>
 
-    <div id="output">Output will appear here...</div>
+    <button onclick="openQuickAssist()">Open Quick Assist</button>
+    <button onclick="openAnyDesk()">Open AnyDesk</button>
+    <button onclick="sendHelp()">Send Help Request</button>
 
-    <script>
-        function runCommand(command) {
-            const output = document.getElementById('output');
-            
-            if (command === 'time') {
-                output.innerText = 'Current Time: ' + new Date().toLocaleTimeString();
-            } else if (command === 'greet') {
-                const name = prompt('Enter your name:');
-                output.innerText = 'Hello, ' + (name || 'Guest') + '!';
-            } else if (command === 'color') {
-                const colors = ['#f4a261', '#2a9d8f', '#e9c46a', '#264653', '#e76f51'];
-                document.body.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                output.innerText = 'Background color changed!';
-            } else {
-                output.innerText = 'Unknown command';
-            }
-        }
-    </script>
+    <p id="status"></p>
+
+    <script src="script.js"></script>
 </body>
 </html>
