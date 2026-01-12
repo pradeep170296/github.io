@@ -1,23 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Remote Tool</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML-Only Remote Tool</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            text-align: center;
+            padding: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+        }
+        #output {
+            margin-top: 20px;
+            background: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            min-height: 100px;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Remote Web Tool</h1>
-    
-    <label for="command">Enter Command:</label>
-    <input type="text" id="command" placeholder="Type something">
-    <button onclick="runCommand()">Execute</button>
+    <h1>HTML-Only Remote Tool</h1>
 
-    <h2>Output:</h2>
-    <pre id="output"></pre>
-  </div>
+    <button onclick="runCommand('time')">Get Time</button>
+    <button onclick="runCommand('greet')">Greet</button>
+    <button onclick="runCommand('color')">Change Background Color</button>
 
-  <script src="script.js"></script>
+    <div id="output">Output will appear here...</div>
+
+    <script>
+        function runCommand(command) {
+            const output = document.getElementById('output');
+            
+            if (command === 'time') {
+                output.innerText = 'Current Time: ' + new Date().toLocaleTimeString();
+            } else if (command === 'greet') {
+                const name = prompt('Enter your name:');
+                output.innerText = 'Hello, ' + (name || 'Guest') + '!';
+            } else if (command === 'color') {
+                const colors = ['#f4a261', '#2a9d8f', '#e9c46a', '#264653', '#e76f51'];
+                document.body.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                output.innerText = 'Background color changed!';
+            } else {
+                output.innerText = 'Unknown command';
+            }
+        }
+    </script>
 </body>
 </html>
