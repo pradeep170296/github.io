@@ -1,20 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Web Remote Support Tool</title>
+    <title>Controller</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <h1>Remote Support Tool</h1>
+<h2>Remote Controller</h2>
 
-    <button onclick="openQuickAssist()">Open Quick Assist</button>
-    <button onclick="openAnyDesk()">Open AnyDesk</button>
-    <button onclick="sendHelp()">Send Help Request</button>
+<button onclick="send('open')">Open</button>
+<button onclick="send('close')">Close</button>
 
-    <p id="status"></p>
+<script src="/socket.io/socket.io.js"></script>
+<script src="script.js"></script>
 
-    <script src="script.js"></script>
 </body>
 </html>
