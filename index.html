@@ -1,34 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JLK Remote Tool</title>
+    <title>Controller</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h2>Remote Desktop</h2>
+<h2>Remote Controller</h2>
 
-<img id="screen" width="800">
+<button onclick="send('open')">Open</button>
+<button onclick="send('close')">Close</button>
 
-<script>
-
-let ws = new WebSocket("ws://192.168.1.10:8765");
-
-ws.onmessage = function(event) {
-    document.getElementById("screen").src =
-        "data:image/jpeg;base64," + event.data;
-};
-
-document.onclick = function(e) {
-
-    let x = e.clientX;
-    let y = e.clientY;
-
-    ws.send("move," + x + "," + y);
-    ws.send("click");
-
-};
-
-</script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
